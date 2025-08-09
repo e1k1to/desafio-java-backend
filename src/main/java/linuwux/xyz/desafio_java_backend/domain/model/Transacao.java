@@ -3,6 +3,7 @@ package linuwux.xyz.desafio_java_backend.domain.model;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.time.OffsetDateTime;
+import java.util.List;
 
 public class Transacao {
     @JsonProperty("valor")

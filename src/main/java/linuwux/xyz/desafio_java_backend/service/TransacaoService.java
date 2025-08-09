@@ -17,9 +17,18 @@ public class TransacaoService {
         listaTransacoes.add(transacao);
     }
 
+    public void limparTodasTransacoes() {
+        listaTransacoes.clear();
+    }
+
+    public List<Transacao> getListaUltimoMinuto() {
+        return listaTransacoes.stream()
+                .filter(b -> b.getDataHora().isAfter(OffsetDateTime.now().minusMinutes(1)))
+                .toList();
+    }
+
     @Override
     public String toString() {
-
         return String.join("", listaTransacoes.toString());
     }
 }
