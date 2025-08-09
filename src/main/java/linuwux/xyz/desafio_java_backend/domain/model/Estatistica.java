@@ -7,6 +7,7 @@ public class Estatistica {
     private double min;
     private double max;
 
+
     public Estatistica(int count, double sum, double avg, double min, double max) {
         this.count = count;
         this.sum = sum;
