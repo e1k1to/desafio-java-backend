@@ -56,18 +56,18 @@ public class TransacaoController {
         return ResponseEntity.ok().build();
     }
 
-//    @GetMapping("/estatistica")
-//    public ResponseEntity<Estatistica> enviarEstatisticas() {
-//        List<Transacao> ultimoMinuto = transacaoService.getListaUltimoMinuto();
-//        int count = ultimoMinuto.size();
-//        if(count == 0) {
-//            return ResponseEntity.ok(new Estatistica(0, 0, 0, 0, 0));
-//        }
-//        double sum = ultimoMinuto.stream().mapToDouble(Transacao::getValor).sum();
-//        double avg = sum/count;
-//        double min = ultimoMinuto.stream().mapToDouble(Transacao::getValor).min().orElse(0);
-//        double max = ultimoMinuto.stream().mapToDouble(Transacao::getValor).max().orElse(0);
-//        return ResponseEntity.ok(new Estatistica(count, sum, avg, min, max));
-//
-//    }
+    @GetMapping("/estatistica")
+    public ResponseEntity<Estatistica> enviarEstatisticas() {
+        List<Transacao> ultimoMinuto = transacaoService.getListaUltimoMinuto();
+        int count = ultimoMinuto.size();
+        if(count == 0) {
+            return ResponseEntity.ok(new Estatistica(0, 0, 0, 0, 0));
+        }
+        double sum = ultimoMinuto.stream().mapToDouble(Transacao::getValor).sum();
+        double avg = sum/count;
+        double min = ultimoMinuto.stream().mapToDouble(Transacao::getValor).min().orElse(0);
+        double max = ultimoMinuto.stream().mapToDouble(Transacao::getValor).max().orElse(0);
+        return ResponseEntity.ok(new Estatistica(count, sum, avg, min, max));
+
+    }
 }
